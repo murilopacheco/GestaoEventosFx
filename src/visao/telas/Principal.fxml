@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="visao.controle.PrincipalControle">
+   <children>
+      <BorderPane layoutX="1.0" layoutY="-2.0" prefHeight="406.0" prefWidth="600.0">
+         <top>
+            <MenuBar fx:id="menuPrincipal" prefHeight="25.0" prefWidth="605.0" BorderPane.alignment="CENTER">
+              <menus>
+                <Menu fx:id="menuCadastros" mnemonicParsing="false" text="Cadastros">
+                  <items>
+                        <MenuItem fx:id="menuCadastrarPessoa" mnemonicParsing="false" onAction="#abrirCadastroPessoa" text="Cadastrar Pessoa" />
+                    <MenuItem mnemonicParsing="false" text="Close" />
+                  </items>
+                </Menu>
+                <Menu fx:id="menuRelatorios" mnemonicParsing="false" text="Relatórios">
+                  <items>
+                    <MenuItem mnemonicParsing="false" text="Delete" />
+                  </items>
+                </Menu>
+                <Menu fx:id="menuConfiguracoes" mnemonicParsing="false" text="Configurações">
+                  <items>
+                    <MenuItem mnemonicParsing="false" text="About" />
+                  </items>
+                </Menu>
+              </menus>
+            </MenuBar>
+         </top>
+         <center>
+            <Pane fx:id="panePrincipal" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
+         </center>
+      </BorderPane>
+   </children>
+</AnchorPane>

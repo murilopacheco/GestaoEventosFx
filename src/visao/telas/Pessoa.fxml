@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="641.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="visao.controle.PessoaControle">
+   <children>
+      <Label alignment="CENTER" layoutX="181.0" layoutY="11.0" prefHeight="27.0" prefWidth="220.0" text="Cadastro de Pessoa">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
+      <Label fx:id="lbNome" layoutX="9.0" layoutY="95.0" text="Nome:*" />
+      <TextField fx:id="txtNome" layoutX="62.0" layoutY="91.0" prefHeight="25.0" prefWidth="267.0" promptText="Digite o nome aqui..." />
+      <Label fx:id="lbCPF" layoutX="16.0" layoutY="126.0" text="CPF:*" />
+      <TextField fx:id="txtCPF" layoutX="62.0" layoutY="122.0" prefHeight="25.0" prefWidth="267.0" />
+      <Label fx:id="lbDataNascimento" layoutX="345.0" layoutY="96.0" text="Data Nasc.*" />
+      <DatePicker fx:id="dtDataNascimento" layoutX="415.0" layoutY="90.0" />
+      <Label fx:id="lbRG" layoutX="382.0" layoutY="126.0" text="RG:*" />
+      <TextField fx:id="txtRG" layoutX="415.0" layoutY="122.0" prefHeight="25.0" prefWidth="174.0" />
+      <Separator layoutX="1.0" layoutY="38.0" prefHeight="5.0" prefWidth="600.0" />
+      <Label fx:id="lbEndereco" layoutX="4.0" layoutY="156.0" text="Endereço:*" />
+      <TextField fx:id="txtEndereco" layoutX="61.0" layoutY="152.0" prefHeight="25.0" prefWidth="527.0" />
+      <Label fx:id="lbTelefone" layoutX="3.0" layoutY="189.0" text="Telefone:*" />
+      <TextField fx:id="txtTelefone" layoutX="66.0" layoutY="185.0" prefHeight="25.0" prefWidth="240.0" />
+      <Label fx:id="lbCelular" layoutX="334.0" layoutY="189.0" text="Celular:*" />
+      <TextField fx:id="txtCelular" layoutX="385.0" layoutY="185.0" prefHeight="25.0" prefWidth="209.0" />
+      <Label fx:id="lbEmail" layoutX="14.0" layoutY="219.0" text="email:*" />
+      <TextField fx:id="txtEmail" layoutX="66.0" layoutY="215.0" prefHeight="25.0" prefWidth="258.0" />
+      <Label layoutX="343.0" layoutY="228.0" text="Sexo:*" fx:id="lbSexo" />
+      <HBox layoutX="382.0" layoutY="225.0" prefHeight="25.0" prefWidth="220.0" fx:id="hboxSexo">
+         <children>
+            <RadioButton fx:id="rbSexoFeminino" mnemonicParsing="false" text="Feminino">
+               <toggleGroup>
+                  <ToggleGroup fx:id="RbSexo" />
+               </toggleGroup>
+               <padding>
+                  <Insets left="12.0" />
+               </padding>
+            </RadioButton>
+            <RadioButton fx:id="rbSexoMasculino" mnemonicParsing="false" selected="true" text="Masculino" toggleGroup="$RbSexo" />
+         </children>
+      </HBox>
+      <Button fx:id="btnSalvar" layoutX="488.0" layoutY="259.0" mnemonicParsing="false" onAction="#salvar" text="Salvar" />
+      <Button fx:id="btnCancelar" layoutX="544.0" layoutY="258.0" mnemonicParsing="false" text="Cancelar" />
+      <TableView fx:id="tbPessoas" layoutY="289.0" prefHeight="169.0" prefWidth="624.0">
+        <columns>
+          <TableColumn fx:id="clId" prefWidth="75.0" text="ID" />
+          <TableColumn fx:id="clNome" prefWidth="295.0" text="NOME:" />
+            <TableColumn fx:id="clCPF" prefWidth="120.0" text="CPF" />
+            <TableColumn fx:id="clDataNascimento" prefWidth="132.0" text="DATA NASCIMENTO" />
+        </columns>
+      </TableView>
+      <TableView fx:id="tbPessoaJuridica" layoutY="489.0" prefHeight="146.0" prefWidth="624.0">
+        <columns>
+          <TableColumn fx:id="clIdJuridico" prefWidth="75.0" text="ID" />
+          <TableColumn fx:id="clNomeFantasia" prefWidth="230.0" text="Nome Fantasia" />
+            <TableColumn fx:id="clCNPJ" prefWidth="162.0" text="CNPJ" />
+            <TableColumn fx:id="clRazao" prefWidth="156.0" text="Razão Social" />
+        </columns>
+      </TableView>
+      <TextField fx:id="txtIE" layoutX="73.0" layoutY="245.0" prefHeight="25.0" prefWidth="258.0" />
+      <Label fx:id="lbIE" layoutX="2.0" layoutY="252.0" text="Isc. Estadual" />
+      <Label layoutX="239.0" layoutY="271.0" prefHeight="17.0" prefWidth="127.0" text="Lista de Pessoas Físicas" />
+      <Label layoutX="243.0" layoutY="460.0" prefHeight="17.0" prefWidth="139.0" text="Lista de Pessoas Juridicas" />
+      <Label layoutX="20.0" layoutY="53.0" text="Tipo" />
+      <HBox fx:id="hboxTipo" layoutX="59.0" layoutY="52.0" prefHeight="25.0" prefWidth="174.0">
+         <children>
+            <RadioButton fx:id="rbTipoFisica" mnemonicParsing="false" onAction="#selecionaPessoaFísica" selected="true" text="Fisica">
+               <toggleGroup>
+                  <ToggleGroup fx:id="rbTipo" />
+               </toggleGroup>
+            </RadioButton>
+            <RadioButton fx:id="rbTipoJuridico" mnemonicParsing="false" onAction="#SelecionaPessoaJuridica" text="Jrudica" toggleGroup="$rbTipo" />
+         </children>
+      </HBox>
+   </children>
+</Pane>
