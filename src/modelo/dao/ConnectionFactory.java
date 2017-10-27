@@ -9,7 +9,8 @@ public class ConnectionFactory {
 	    public Connection getConnection() {
 	        try {
 	            Class.forName("com.mysql.jdbc.Driver");
-	            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/eventos", "root", "root");
+	            con = DriverManager.
+	            		getConnection("jdbc:mysql://localhost:3306/GestaoEventos", "root", "root");
 	            return con;
 	        } catch (Exception e) {
 	            System.out.println("Erro na conex‹o: " + e.getMessage());
