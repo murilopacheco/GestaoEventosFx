@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.text.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.control.*?>
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-
-<AnchorPane xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="visao.controle.LoginControle">
+<AnchorPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="visao.controle.LoginControle">
    <children>
       <AnchorPane layoutX="-55.0" prefHeight="480.0" prefWidth="600.0">
          <children>
@@ -16,16 +16,21 @@
                   <Pane fx:id="paneCentral" prefHeight="480.0" prefWidth="529.0" BorderPane.alignment="CENTER">
                      <children>
                         <Label fx:id="lbLogin" layoutX="153.0" layoutY="164.0" text="Login:" />
-                        <TextField fx:id="txtLogin" layoutX="194.0" layoutY="160.0" />
+                        <TextField fx:id="txtLogin" layoutX="194.0" layoutY="160.0" onMouseClicked="#limpar" />
                         <Label fx:id="lbSenha" layoutX="149.0" layoutY="194.0" text="senha:" />
                         <PasswordField fx:id="pswSenha" layoutX="194.0" layoutY="190.0" />
-                        <Button fx:id="btnLogin" layoutX="292.0" layoutY="228.0" mnemonicParsing="false" text="login" />
+                        <Button fx:id="btnLogin" layoutX="292.0" layoutY="228.0" mnemonicParsing="false" text="login" onAction="#logar" />
                         <Label layoutX="180.0" layoutY="127.0" text="Label" textFill="#f20909" visible="false" />
                         <ImageView fitHeight="77.0" fitWidth="103.0" layoutX="208.0" layoutY="67.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@../../../../../Downloads/images-login.png" />
                            </image>
                         </ImageView>
+                        <ColorPicker layoutX="325.0" layoutY="93.0" />
+                        <Label fx:id="lbMsg" layoutX="180.0" layoutY="262.0" text="Selecione a cor:" textFill="#f20909" visible="false">
+                           <font>
+                              <Font size="14.0" />
+                           </font></Label>
                      </children>
                   </Pane>
                </center>

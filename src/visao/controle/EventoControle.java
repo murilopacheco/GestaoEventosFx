@@ -29,21 +29,21 @@ public class EventoControle {
 		evento.setValorIngresso(Double.parseDouble((JOptionPane.showInputDialog
 				("Digite o valor do ingresso"))));
 		evento.setStatus("cadastrado");
-		SimpleDateFormat sp = new SimpleDateFormat("dd/mm/yyyy");
-		evento.setDataEvento(
-				sp.parse((
-						JOptionPane.
-						showInputDialog("digite a data do "
-								+ "evento(Ex: 22/10/2017)"))));
+		String x=(JOptionPane.showInputDialog("Digite a data do evento"
+				+ "no formato dd/mm/aaaa")); //pegando dados de um formulário WEB
+		SimpleDateFormat sdf1= new 
+				SimpleDateFormat("dd/MM/yyyy"); //você pode usar outras máscaras
+			
+		evento.setDataEvento(sdf1.parse(x));
 		evento.setLocal(JOptionPane.
 						showInputDialog("digite o local do evento"));
 		EventoNegocio eventoNegocio =  new EventoNegocio();
 		String criado = eventoNegocio.solicitarEvento(evento, usuario);
 		System.out.println(criado);
-		}
+		}else {
 		System.out.println("Por favor faça login ou "
 				+ "se cadastre para solicitar eventos");
-		
+		}
 		}
 		
 }

@@ -3,13 +3,12 @@ package application;
 import java.net.URL;
 
 import javafx.application.Application;
-import javafx.stage.Stage;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.VBox;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Pos;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.layout.VBox;
+import javafx.stage.Stage;
 
 
 public class Main extends Application {
@@ -18,7 +17,7 @@ public class Main extends Application {
             VBox raiz = new VBox(10); // 1
             raiz.setAlignment(Pos.CENTER); // 2
         URL arquivoFXML;
-        arquivoFXML = getClass().getResource("/Visao/telas/Login2.fxml");
+        arquivoFXML = getClass().getResource("/Visao/telas/Principal.fxml");
         Parent fxmlParent =(Parent) FXMLLoader.load(arquivoFXML);
             Scene cena = new Scene(fxmlParent, 800, 600);
              principal.setTitle("Janela Principal");
