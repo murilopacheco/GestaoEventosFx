@@ -1,21 +1,24 @@
 package negocio;
 
+import java.sql.SQLException;
 import java.util.Calendar;
 import java.util.Date;
 
+import modelo.dao.EventoDao;
 import modelo.dominio.Evento;
 import modelo.dominio.Usuario;
 
 public class EventoNegocio {
 	
-	public String solicitarEvento(Evento evento, Usuario usuario) {
+	public String solicitarEvento(Evento evento, Usuario usuario) throws SQLException {
+		String salvo = "";
 		boolean validar = false;
 		validar = validarData(evento.getDataEvento());
 		if(validar == true) {
-			System.out.println("funciona!!!!!!");
-			return"criado";
+			EventoDao eventoDao = new EventoDao();
+			salvo = eventoDao.solicitarEvento(usuario, evento);
 		}
-		return"";
+		return salvo;
 	}
 	
 	public boolean validarData(Date data) {

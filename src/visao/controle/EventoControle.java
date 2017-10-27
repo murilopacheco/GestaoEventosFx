@@ -1,6 +1,7 @@
 package visao.controle;
 
 import java.awt.HeadlessException;
+import java.sql.SQLException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.List;
@@ -19,6 +20,7 @@ public class EventoControle {
 	
 	public void solicitarEvento(Usuario usuario) throws HeadlessException, ParseException {
 		if(usuario != null) {
+		String salvo = "";
 		evento = new Evento();
 		evento.setNome(JOptionPane.showInputDialog
 		("Digite o nome do evento"));
@@ -38,8 +40,13 @@ public class EventoControle {
 		evento.setLocal(JOptionPane.
 						showInputDialog("digite o local do evento"));
 		EventoNegocio eventoNegocio =  new EventoNegocio();
-		String criado = eventoNegocio.solicitarEvento(evento, usuario);
-		System.out.println(criado);
+		try {
+			salvo = eventoNegocio.solicitarEvento(evento, usuario);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		System.out.println(salvo);
 		}else {
 		System.out.println("Por favor faça login ou "
 				+ "se cadastre para solicitar eventos");

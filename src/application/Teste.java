@@ -17,6 +17,7 @@ public class Teste {
 		Usuario usuario = new Usuario();
 		usuario.setLogin("login");
 		usuario.setSenha("senha");
+		usuario.setId(1);
 		controle.solicitarEvento(usuario);
 	}
 }
