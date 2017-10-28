@@ -4,6 +4,7 @@ import java.awt.HeadlessException;
 import java.sql.SQLException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.swing.JOptionPane;
@@ -52,6 +53,15 @@ public class EventoControle {
 				+ "se cadastre para solicitar eventos");
 		}
 		}
+	
+	public void listarEventos() {
+		List<Evento> listaDeEventos = new ArrayList<Evento>();
+		EventoNegocio negocio = new EventoNegocio();
+		listaDeEventos = negocio.listarEventos();
+		Evento evento = new Evento();
+		evento = listaDeEventos.get(0);
+		System.out.println(evento.getId() + evento.getNome() + evento.getDataEvento() + evento.getLocal());
+	}
 		
 }
 

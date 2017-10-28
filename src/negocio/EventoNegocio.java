@@ -1,8 +1,10 @@
 package negocio;
 
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.List;
 
 import modelo.dao.EventoDao;
 import modelo.dominio.Evento;
@@ -19,6 +21,17 @@ public class EventoNegocio {
 			salvo = eventoDao.solicitarEvento(usuario, evento);
 		}
 		return salvo;
+	}
+	
+	public List<Evento> listarEventos(){
+		EventoDao dao = new EventoDao();
+		try {
+			return dao.listarEventos();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return null;
+		}
 	}
 	
 	public boolean validarData(Date data) {

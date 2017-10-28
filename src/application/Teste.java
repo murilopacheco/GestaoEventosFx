@@ -2,7 +2,10 @@ package application;
 
 import java.awt.HeadlessException;
 import java.text.ParseException;
+import java.util.ArrayList;
+import java.util.List;
 
+import modelo.dominio.Evento;
 import modelo.dominio.Usuario;
 import visao.controle.EventoControle;
 
@@ -18,6 +21,7 @@ public class Teste {
 		usuario.setLogin("login");
 		usuario.setSenha("senha");
 		usuario.setId(1);
+		controle.listarEventos();
 		controle.solicitarEvento(usuario);
 	}
 }

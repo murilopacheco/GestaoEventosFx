@@ -1,11 +1,12 @@
 package modelo.dao;
 
 import java.sql.Connection;
-import java.sql.Date;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
 import modelo.dominio.Evento;
 import modelo.dominio.Usuario;
@@ -64,6 +65,34 @@ public class EventoDao {
         }
 		
 		return salvo;
+	}
+	
+	public List<Evento> listarEventos() throws SQLException{
+		List<Evento> listaDeEventos = new ArrayList<Evento>();
+		ResultSet res = null;
+		String sqlListar = "SELECT * FROM EVENTO";
+		try {
+		preparedStatement = con.prepareStatement(sqlListar);
+		res = preparedStatement.executeQuery();
+		while (res.next()) {
+			Evento evento = new Evento();
+			evento.setId(res.getInt("id"));
+			evento.setNome(res.getString("nome"));
+			evento.setDataEvento(res.getDate("dataEvento"));
+			evento.setStatus(res.getString("statusEvento"));
+			evento.setVagas(res.getInt("vagas"));
+			evento.setValorIngresso(res.getDouble("valorIngresso"));
+			evento.setLocal(res.getString("localEvento"));
+			evento.setCategoria(res.getString("categoria"));
+			
+			listaDeEventos.add(evento);
+		}
+		
+		
+		}catch (SQLException e){
+            System.out.println("Erro na consulta1:" + e.getMessage());
+        }
+		return listaDeEventos;
 	}
 
 }
