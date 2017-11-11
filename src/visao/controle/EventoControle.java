@@ -54,13 +54,43 @@ public class EventoControle {
 		}
 		}
 	
-	public void listarEventos() {
+	public List<Evento> listarEventos() {
 		List<Evento> listaDeEventos = new ArrayList<Evento>();
 		EventoNegocio negocio = new EventoNegocio();
 		listaDeEventos = negocio.listarEventos();
 		Evento evento = new Evento();
 		evento = listaDeEventos.get(0);
 		System.out.println(evento.getId() + evento.getNome() + evento.getDataEvento() + evento.getLocal());
+		return listaDeEventos;
+	}
+	
+	
+	public void participarEvento(Usuario usuario) {
+		List<Evento> listaDeEventos = listarEventos();
+		System.out.println("escolha um evento listado abaixo");
+		System.out.println("código" + "|" 
+				+ "nome" + "|" + "Categoria" 
+				+ "|" + ("Vagas"));
+		for(int i = 0; i<listaDeEventos.size();i++) {
+			Evento evento = new Evento();
+			evento = listaDeEventos.get(i);
+			System.out.println(evento.getId() + "|" 
+			+ evento.getNome() + "|" + evento.getCategoria() 
+			+ "|" + evento.getVagas());
+		}
+		int codigo = Integer.parseInt((JOptionPane.showInputDialog("Digite o codigo do evento que deseja participar")));
+		EventoNegocio negocio = new EventoNegocio();
+		String participar = negocio.participarEvento(usuario, codigo);
+		while (participar.equals("escolha um evento válido na lista apresentada")) {
+			System.out.println("Selecione um codigo da lista acima!");
+			codigo = Integer.parseInt((JOptionPane.showInputDialog("Digite o codigo do evento que deseja participar")));
+			participar = negocio.participarEvento(usuario, codigo);
+		}
+		if(participar.equals("salvo")) {
+			System.out.println("Compra efetuada com sucesso");
+		}else {
+			System.out.println(participar);
+		}
 	}
 		
 }

@@ -21,7 +21,8 @@ public class Teste {
 		usuario.setLogin("login");
 		usuario.setSenha("senha");
 		usuario.setId(1);
-		controle.listarEventos();
-		controle.solicitarEvento(usuario);
+		//controle.listarEventos();
+		//controle.solicitarEvento(usuario);
+		controle.participarEvento(usuario);
 	}
 }
